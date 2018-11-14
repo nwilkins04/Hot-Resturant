@@ -51,9 +51,14 @@ app.post("/api/reservations", function(req, res) {
   // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   newReservation.uniqueID = newReservation.name.replace(/\s+/g, "").toLowerCase();
 
-  console.log(newReservation);
+  console.log(waitingList)
 
-  reservations.push(newReservation);
+  if (reservations.length <= 5) {
+    reservations.push(newReservation);
+  } else if (reservations.length > 5) {
+    waitingList.push(newReservation)
+    
+  }
 
   res.json(newReservation);
 });
