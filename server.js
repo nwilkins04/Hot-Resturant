@@ -48,3 +48,6 @@ app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 
+app.get("/api/reservations", function (req, res) {
+  return res.json(reservations);
+})
