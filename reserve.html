@@ -46,7 +46,7 @@
 
               <div class="form-group">
                 <label for="role">Phone Number</label>
-                <input type="text" class="form-control" id="number">
+                <input type="text" class="form-control" id="phone">
               </div>
 
               <div class="form-group">
@@ -79,13 +79,13 @@
 
       var newReservation = {
         name: $("#name").val().trim(),
-        number: $("#number").val().trim(),
+        number: $("#phone").val().trim(),
         email: $("#email").val().trim(),
         uniqueId: $("#unique_id").val().trim()
       };
 
       // Question: What does this code do??
-      $.post("/api/reservation", newReservation)
+      $.post("/api/reservations", newReservation)
         .then(function(data) {
           console.log(data);
           alert("Adding reservation...");
