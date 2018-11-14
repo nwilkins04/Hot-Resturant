@@ -12,11 +12,6 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + PORT);
-});
-
-
 var waitingList = [];
 
 var reservations = [{
@@ -34,8 +29,6 @@ var reservations = [{
     uniqueID: "letsGoWife",
 }];
 
-console.log(reservations)
-
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "root.html"));
 });
@@ -46,5 +39,15 @@ app.get("/reserve", function(req, res) {
   
 app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+app.get("/api/reservations", function (req, res) {
+  return res.json(reservations);
+})
+
+// Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
 });
 
