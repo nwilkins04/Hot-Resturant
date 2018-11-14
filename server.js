@@ -31,10 +31,10 @@ var reservations = [{
     uniqueID: "letsGoWife",
 }];
 
-console.log(reservations)
+//console.log(reservations)
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "rootroute.html"));
+    res.sendFile(path.join(__dirname, "root.html"));
   });
   
   app.get("/add", function(req, res) {
@@ -43,4 +43,13 @@ app.get("/", function(req, res) {
   
   app.get("/all", function(req, res) {
     res.sendFile(path.join(__dirname, "tables.html"));
+  });
+
+app.get("/api/tables", function(req, res) {
+  return res.json(reservations);
+  console.log("display shit")
+});
+
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
   });
