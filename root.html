@@ -20,13 +20,13 @@
       <h3>Book your table here. We only have 5!</h3>
       <hr>
       <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Tables</button></a>
-      <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make Reservation </button></a>
+      <a href="/reserve.html"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Make Reservation </button></a>
     </div>
     <div class="row">
 
       <div class="col-12">
 
-        <!-- <div class="card">
+        <div class="card">
           <div class="card-header">
             <strong></strong></h3>
           </div>
@@ -35,13 +35,13 @@
 
             </ul>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
 
-      $.get("/api/characters", function(data) {
+      $.get("/api/reservations", function(data) {
         for (var i = 0; i < data.length; i++) {
           console.log(data[i]);
           var listGroupItem = $("<li class='list-group-item'>");
@@ -54,7 +54,7 @@
           $("#reservations-section").append(listGroupItem);
         }
       });
-    </script> -->
+    </script>
 
 </body>
 
