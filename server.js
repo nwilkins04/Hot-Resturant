@@ -34,11 +34,11 @@ var reservations = [{
     uniqueID: "letsGoWife",
 }];
 
-console.log(reservations)
+//console.log(reservations)
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "root.html"));
-});
+    res.sendFile(path.join(__dirname, "root.html"));
+  });
   
 app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
