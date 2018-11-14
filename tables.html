@@ -3,11 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-<<<<<<< HEAD
-  <title>Star Wars - Express</title>
-=======
   <title>Hot Restaurant</title>
->>>>>>> b01dd2028dbc71aa90a57261bcfcfd7058ddd723
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -65,23 +61,23 @@
 
   <script type="text/javascript">
     $("#search-btn").on("click", function() {
-      var searchedCharacter = $("#character-search").val().trim();
+      var searchedReservation = $("#reservation-search").val().trim();
 
       // Using a RegEx Pattern to remove spaces from searchedCharacter
       // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      searchedCharacter = searchedCharacter.replace(/\s+/g, "").toLowerCase();
+      searchedReservation = searchedReservation.replace(/\s+/g, "").toLowerCase();
 
-      $.get("/api/characters/" + searchedCharacter, function(data) {
+      $.get("/api/reservations/" + searchedReservation, function(data) {
         console.log(data);
         if (data) {
           $("#stats").show();
+          $("#uniqueID").text(data.uniqueID);
           $("#name").text(data.name);
-          $("#role").text(data.role);
-          $("#age").text(data.age);
-          $("#force-points").text(data.forcePoints);
+          $("#phone").text(data.phone);
+          $("#email").text(data.email);
         }
         else {
-          $("#name").text("The force is not strong with this one. Your character was not found.");
+          $("#name").text("Oops I did it again, I ate your food");
           $("#stats").hide();
         }
       });
