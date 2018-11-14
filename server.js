@@ -12,7 +12,10 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-console.log("connected - listening at port: " + PORT)
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
+});
+
 
 var waitingList = [];
 
@@ -37,19 +40,11 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "root.html"));
   });
   
-  app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "reserve.html"));
-  });
+app.get("/reserve", function(req, res) {
+  res.sendFile(path.join(__dirname, "reserve.html"));
+});
   
-  app.get("/all", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
-  });
-
-app.get("/api/tables", function(req, res) {
-  return res.json(reservations);
-  console.log("display shit")
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "tables.html"));
 });
 
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
