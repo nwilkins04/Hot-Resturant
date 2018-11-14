@@ -1,10 +1,7 @@
-// Dependencies
-// =============================================================
 var express = require("express");
 var path = require("path");
 
-// Sets up the Express App
-// =============================================================
+
 var app = express();
 var PORT = process.env.PORT || 3000;
 
@@ -30,8 +27,8 @@ var reservations = [{
 }];
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "root.html"));
-});
+    res.sendFile(path.join(__dirname, "root.html"));
+  });
   
 app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
