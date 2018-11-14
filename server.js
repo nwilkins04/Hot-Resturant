@@ -42,6 +42,22 @@ app.get("/api/reservations", function (req, res) {
   return res.json(reservations);
 })
 
+app.post("/api/reservations", function(req, res) {
+  // req.body hosts is equal to the JSON post sent from the user
+  // This works because of our body parsing middleware
+  var newReservation = req.body;
+
+  // Using a RegEx Pattern to remove spaces from newReservation
+  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+  newReservation.uniqueID = newReservation.name.replace(/\s+/g, "").toLowerCase();
+
+  console.log(newReservation);
+
+  reservations.push(newReservation);
+
+  res.json(newReservation);
+});
+
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
